@@ -1,0 +1,31 @@
+import java.util.*;
+
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        int l1 = s.length();
+        int l2 = p.length();
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Integer> a = new ArrayList<>();
+        if (l1 < l2) return a;
+        char[] pc = p.toCharArray();
+        Arrays.sort(pc);
+        String sp = new String(pc);
+        for (int i = 0; i < l2; i++) {
+            sb.append(s.charAt(i));
+        }
+        if (funcc(sb.toString(), sp)) a.add(0);
+        for (int i = l2; i < l1; i++) {
+            sb.append(s.charAt(i));
+            sb.deleteCharAt(0);
+            if (funcc(sb.toString(), sp)) {
+                a.add(i - l2 + 1);
+            }
+        }
+        return a;
+    }
+    boolean funcc(String s, String so) {
+        char[] c1 = s.toCharArray();
+        Arrays.sort(c1);
+        return Arrays.equals(c1, so.toCharArray());
+    }
+}
