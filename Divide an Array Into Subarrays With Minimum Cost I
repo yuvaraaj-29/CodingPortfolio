@@ -1,0 +1,23 @@
+class Solution {
+    public int minimumCost(int[] nums) {
+        int f = nums[0];
+        int l=1,r=nums.length-1;
+        int max = 9999;
+        while(l<r)
+        {
+            int sum = f + nums[l] + nums[r];
+            if(sum<max)
+            {
+                max = sum;
+            }
+            r--;
+            if(r==l)
+            {
+                l++;
+                r=nums.length-1;
+                if(l==nums.length-1) break;
+            }
+        }
+        return max;
+    }
+}
