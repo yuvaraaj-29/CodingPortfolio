@@ -1,0 +1,25 @@
+class Solution {
+    public boolean isUgly(int n) {
+        if(n <= 0) return false;
+        if(n == 1) return true;
+        int a=2,b=3,c=5;
+        while(n>1)
+        {
+            if(n % a == 0)
+            {
+                n/=a;
+            }
+            else if(n % b == 0)
+            {
+                n/=b;
+            }
+            else if(n % c == 0)
+            {
+                n/=c;
+            }
+            else return false;
+        }
+        if(n == 1) return true;
+        return false;
+    }
+}
