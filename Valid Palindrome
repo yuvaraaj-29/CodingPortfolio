@@ -1,0 +1,28 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        StringBuilder sb = new StringBuilder();
+        if(s == " ") return true;
+        String g = s.toLowerCase();
+        for(int i=0;i<s.length();i++)
+        {
+            if(g.charAt(i) >= 'a' && g.charAt(i) <= 'z' || g.charAt(i) >= '0' && g.charAt(i) <= '9' )
+            {
+                char c = g.charAt(i);
+                sb.append(c);
+            }
+        }
+        StringBuilder sb1 = new StringBuilder();
+        for(int i=s.length()-1;i>=0;i--)
+        {
+            if(g.charAt(i) >= 'a' && g.charAt(i) <= 'z' || g.charAt(i) >= '0' && g.charAt(i) <= '9' )
+            {
+                char c = g.charAt(i);
+                sb1.append(c);
+            }
+        }
+        System.out.println(sb.toString());
+        System.out.println(sb1.toString());
+        if(sb1.toString().equals(sb.toString())) return true;
+        return false;
+    }
+}
