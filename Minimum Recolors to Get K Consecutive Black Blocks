@@ -1,0 +1,39 @@
+class Solution {
+    public int minimumRecolors(String blocks, int k) {
+        int count=0;
+        int m=0;
+        int n = blocks.length();
+        ArrayList<Integer> a = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<k;i++)
+        {
+            sb.append(blocks.charAt(i));
+            if(blocks.charAt(i) == 'W') count+=1;
+        }
+
+        System.out.println("count one :"+count +""+sb.toString());
+        a.add(count);
+        count = 0;
+        for(int i=k;i<n;i++)
+        {
+            sb.append(blocks.charAt(i));
+            sb.deleteCharAt(0);
+            int c = funcc(sb.toString());
+            System.out.println("count"+c);
+            a.add(c);
+        }
+    
+        Collections.sort(a);
+        int sma = a.get(0);
+        return sma;
+    }
+    int funcc(String s)
+    {
+        int c=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i) == 'W') c+=1;
+        }
+        return c;
+    }
+}
