@@ -1,0 +1,22 @@
+class Solution {
+    public int reverse(int x) {
+        long y = x;
+        if(x < 0) x= x * -1;
+        long xx = Math.abs(y); 
+        StringBuilder sb = new StringBuilder();
+        while(xx != 0)
+        {
+            long r = xx % 10;
+            sb.append(r); 
+            xx/=10;
+        }
+        String d = sb.toString();
+        if (d.isEmpty()) return 0;
+        long con = Long.parseLong(d);
+        if (y < 0) con *= -1;
+        if (con > Integer.MAX_VALUE || con < Integer.MIN_VALUE) {
+                return 0;
+        }
+        return (int)con;
+    }
+}
