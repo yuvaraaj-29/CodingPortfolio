@@ -1,0 +1,17 @@
+class Solution {
+    HashSet<Integer> hs = new HashSet<>();
+    public boolean isHappy(int n) {
+        int i,s = 0,a = 0;
+        if(n == 1) return true;
+        else{
+            while(n > 0){
+                a = n % 10;
+                n = n / 10;
+                s+=a*a;
+            }
+            if(!hs.contains(s)) hs.add(s);
+            else return false;
+            return(isHappy(s));
+        }
+    }
+}
