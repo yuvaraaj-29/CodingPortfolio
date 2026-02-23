@@ -1,0 +1,25 @@
+class Solution {
+    public int findLHS(int[] nums) {
+        LinkedHashMap<Integer,Integer> hm = new LinkedHashMap<>();
+        for(int i=0;i<nums.length;i++)
+        {
+            if(!hm.containsKey(nums[i])) hm.put(nums[i],1);
+            else{
+                hm.put(nums[i],hm.get(nums[i])+1);
+            }
+        }
+        int m = 0,max = 0;
+        List<Integer> keys = new ArrayList<>(hm.keySet());
+        Collections.sort(keys);
+        System.out.println(keys);
+        for(int i=0;i<keys.size()-1;i++)
+        {
+            if(keys.get(i+1) - keys.get(i) == 1) 
+            {
+                max = hm.get(keys.get(i)) + hm.get(keys.get(i+1));
+            }
+            if(m<max) m = max;
+        }
+        return m;
+    }
+}
