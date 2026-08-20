@@ -11,8 +11,6 @@ class Solution {
                 l2.add(nums[i]);
             }
         }
-        System.out.println(l1);
-        System.out.println(l2);
         int[] arr = new int[nums.length];
         int k=0;
         for(int i=0;i<l1.size();i++){
