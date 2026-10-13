@@ -5,7 +5,7 @@ class Solution {
             arr[i] = (long)nums[i] * nums[i]; 
         }
         Arrays.sort(arr);
-        System.out.print(Arrays.toString(arr));
+       // System.out.print(Arrays.toString(arr));
         long sum =0;
         for(int i=0;i<nums.length/2;i++){
             sum -= arr[i];
